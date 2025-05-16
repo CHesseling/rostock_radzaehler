@@ -26,7 +26,10 @@ df_pivot_datum.resample('M').sum()
 #%%
 # pip install chardet
 
+# pip install chardet
+
 url = "https://geo.sv.rostock.de/download/opendata/radmonitore/radmonitore_standorte.csv"
+response = requests.get(url)
 encoding = chardet.detect(response.content)['encoding']
 df_standorte = pd.read_csv(io.StringIO(response.content.decode(encoding)))
 df_standorte
